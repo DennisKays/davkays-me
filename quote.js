@@ -170,7 +170,9 @@
     serviceScope(q);
     const table=document.createElement("table");table.className="quote-table";const thead=document.createElement("thead");thead.innerHTML="<tr><th scope=\"col\">Item</th><th scope=\"col\">Price</th><th scope=\"col\">Billing</th><th scope=\"col\">Notes</th></tr>";table.append(thead);const tbody=document.createElement("tbody");calc.lines.forEach(line=>makeRow(tbody,line.item,line.price,line.period,line.note));table.append(tbody);byId("quote-breakdown").replaceChildren(table);
     const totals=byId("quote-totals");totals.replaceChildren();appendHeading(totals,"Payment summary");
-    const summary=document.createElement("dl");summary.className="quote-summary";
+    const summary=document.createElement("table");summary.className="quote-table quote-summary";
+    const summaryHead=document.createElement("thead");summaryHead.innerHTML="<tr><th scope=\"col\">Item</th><th scope=\"col\">Amount or details</th></tr>";summary.append(summaryHead);
+    const summaryBody=document.createElement("tbody");
     const monthlyInitialSelected=calc.currentMonthlyKnown>0||calc.unknownMonthly.some(x=>x.startsWith("initial "));
     const annualInitialSelected=calc.currentAnnualKnown>0||calc.unknownAnnual.some(x=>x.startsWith("initial "));
     const monthlyRenewalSelected=calc.renewalMonthlyKnown>0||calc.unknownMonthly.some(x=>x.includes("renewal"));
@@ -195,7 +197,7 @@
       ["50% deposit on priced development only",calc.deposit],
       ["Remaining 50% on priced development only",calc.balance]
     ];
-    totalRows.forEach(([label,value])=>{const dt=document.createElement("dt");dt.textContent=label;const dd=document.createElement("dd");dd.textContent=value;summary.append(dt,dd)});totals.append(summary);
+    totalRows.forEach(([label,value])=>{const row=document.createElement("tr");const heading=document.createElement("th");heading.scope="row";heading.textContent=label;const amount=document.createElement("td");amount.textContent=value;row.append(heading,amount);summaryBody.append(row)});summary.append(summaryBody);totals.append(summary);
     const pending=[...calc.unknownFirst,...calc.unknownMonthly,...calc.unknownAnnual];
     const note=document.createElement("p");note.className="quote-pending-note";note.textContent=pending.length?`Preliminary estimate only. To be confirmed: ${[...new Set(pending)].join(", ")}. Unknown charges are not treated as $0. The reference is for this browser-generated estimate and is not a registered quotation.`:"Preliminary estimate only. Final scope, availability, and supplier rates must be confirmed in writing. The reference is not a registered quotation.";totals.append(note);byId("quote-payment-terms").textContent=pricing.paymentTerms;
     const emailSubject=encodeURIComponent(`Quote request ${q.ref} · ${q.package.name}`);
