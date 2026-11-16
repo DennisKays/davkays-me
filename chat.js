@@ -39,15 +39,15 @@
   suggestions.className = "chat-suggestions";
   suggestions.setAttribute("aria-label", "Common questions");
   [
-    "What services do you offer?",
-    "How does pricing work?",
-    "When are you open?",
-    "How can I contact you?"
-  ].forEach(question => {
+    { label: "Services", question: "What services do you offer?" },
+    { label: "Pricing", question: "How does pricing work?" },
+    { label: "Opening hours", question: "When are you open?" },
+    { label: "Contact", question: "How can I contact you?" }
+  ].forEach(({ label, question }) => {
     const suggestion = document.createElement("button");
     suggestion.type = "button";
     suggestion.dataset.question = question;
-    suggestion.textContent = question;
+    suggestion.textContent = label;
     suggestions.append(suggestion);
   });
 
