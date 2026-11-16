@@ -35,10 +35,6 @@
   log.setAttribute("aria-live", "polite");
   log.setAttribute("aria-relevant", "additions text");
 
-  const caption = document.createElement("p");
-  caption.className = "chat-caption";
-  caption.textContent = "A simple helper for quick questions. Your message stays in this browser and is not sent or stored.";
-
   const suggestions = document.createElement("div");
   suggestions.className = "chat-suggestions";
   suggestions.setAttribute("aria-label", "Common questions");
@@ -73,7 +69,7 @@
   send.textContent = "Send";
   form.append(label, input, send);
 
-  panel.replaceChildren(header, log, suggestions, caption, form);
+  panel.replaceChildren(header, log, suggestions, form);
   if (!panel.isConnected) document.body.append(panel);
 
   const welcome = () => window.DavKaysLocale?.helperGreeting?.() || "Welcome. Ask about services, pricing, projects, or contact options.";
