@@ -1,5 +1,11 @@
-/* These portfolio cards describe real parts of the DavKays website build. Add client work only with permission. */
+/* These cards describe DavKays-owned products and website features. Add client work only with permission. */
 window.DAVKAYS_PROJECTS = [
+  {
+    title: "DavKays Connect",
+    description: "A live platform for creating online classrooms and private meetings. Hosts can manage room access and requests, while signed-in participants can join rooms and use the shared document portal.",
+    url: "https://davkays-connect.davidkanyurira6.workers.dev/",
+    type: "Live web app · built by DavKays"
+  },
   {
     title: "DavKays business website",
     description: "A responsive home for the services, story, and project enquiries, designed to make the next step clear on phones and computers.",
