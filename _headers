@@ -2,3 +2,5 @@
   Cache-Control: no-cache, must-revalidate
 /*.html
   Cache-Control: no-cache, must-revalidate
+/portfolio-templates/*
+  Cache-Control: no-cache, must-revalidate

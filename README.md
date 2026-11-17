@@ -14,6 +14,7 @@ A lightweight, responsive static website for DavKays. No build step, framework, 
 
 - `index.html`, `about.html`, `services.html`, `contact.html`: main pages
 - `privacy.html`, `terms.html`, `accessibility.html`: trust pages
+- portfolio-templates/: static portfolio template gallery and three previews
 - `404.html`, `sitemap.xml`, `robots.txt`: utility files
 - `style.css`, `script.js`: shared design and small navigation/contact-form behavior
 - `pricing-config.js`, `pricing-display.js`, `quote.html`, `quote.js`, `quote-pricing.js`: public pricing configuration and browser-only quote builder
