@@ -1,0 +1,81 @@
+/* Landing-page-only polish. All rules are scoped to this page. */
+.landing-polish{--room-orange:#e8643a;--studio-brown:#70402b;--studio-brown-light:#87563c;--room-white:#f3efe8;--room-muted:#b6b0a8}
+.landing-polish .topbar{padding:0;background:transparent;border:0}
+.landing-polish .nav{width:min(calc(100% - 32px),1200px);min-height:56px;margin:12px auto;padding:7px 10px;border:1px solid #ffffff22;border-radius:999px;background:#151516d9;box-shadow:0 12px 34px #0005;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);gap:12px}
+.landing-polish .logo{gap:.38rem;font-size:1rem;letter-spacing:-.04em}
+.landing-polish .brand-mark{width:32px;height:32px}
+.landing-polish .business-countdown{margin-right:0;padding:.34rem .62rem;border-color:#ffffff20;background:#202022;font-size:.7rem}
+.landing-polish .business-countdown-value{font-size:.69rem}
+.landing-polish .navlinks{gap:clamp(.8rem,1.6vw,1.4rem)}
+.landing-polish .navlinks>a:not(.nav-cta){font-size:.8rem}
+.landing-polish .navlinks>a:not(.nav-cta):after{background:var(--studio-brown-light)}
+.landing-polish .navlinks .nav-cta{background:var(--studio-brown);box-shadow:0 5px 18px #70402b4d}
+.landing-polish .navlinks .nav-cta:hover{background:var(--studio-brown-light);box-shadow:0 7px 22px #70402b61}
+
+.landing-polish .room-hero{background:radial-gradient(ellipse at 93% 54%,#70402b35 0,transparent 30%),#0b0b0c}
+.landing-polish .room-hero-inner{padding-top:clamp(118px,14vh,150px);padding-bottom:76px}
+.landing-polish .room-hero-copy{width:min(100%,690px);margin:0;animation:landing-fade-in .28s ease-out both!important}
+@keyframes landing-fade-in{from{opacity:.82;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.landing-polish .room-hero h1{max-width:11.5ch;font-size:clamp(3rem,6.1vw,5.65rem);line-height:.96;letter-spacing:-.07em}
+.landing-polish .room-hero h1 em{color:var(--room-orange);font-style:italic}
+.landing-polish .room-hero-photo img{filter:none;object-position:center 48%}
+.landing-polish .room-hero-photo:after{background:linear-gradient(90deg,#0b0b0cf2 0%,#0b0b0cdb 32%,#0b0b0c8a 56%,transparent 82%),radial-gradient(ellipse at 91% 58%,#70402b30 0%,transparent 42%)}
+.landing-polish .room-hero-actions{flex-wrap:wrap;gap:.65rem .8rem;margin-top:1.6rem}
+.landing-polish .room-button{min-height:48px;padding:.78rem 1.15rem}
+.landing-polish .hero-outline{min-height:48px;padding:.7rem 1rem;border:1px solid #f3efe86b;border-radius:999px;color:#f3efe8;text-decoration:none}
+.landing-polish .hero-outline:hover{border-color:#f3efe8;background:#ffffff0b}
+.landing-polish .hero-text-link{position:static;left:auto;bottom:auto;display:inline-flex;align-items:center;gap:.45rem;margin:0;padding:.5rem .15rem;color:#d5cec7;font-size:.76rem;letter-spacing:.01em;text-decoration:none;transform:none}
+.landing-polish .hero-text-link i{width:auto;height:auto;background:none;color:#e88c67;font-style:normal}
+@media(max-width:700px){.landing-polish .room-hero-inner{padding-top:118px;padding-bottom:42px}.landing-polish .room-hero h1{font-size:clamp(2.8rem,10.8vw,4.15rem)}.landing-polish .room-hero-photo:after{background:linear-gradient(90deg,#0b0b0cf2 0%,#0b0b0cda 48%,#0b0b0c88 76%,transparent 100%),radial-gradient(ellipse at 91% 58%,#70402b30 0%,transparent 42%)}.landing-polish .room-hero-actions{gap:.5rem}.landing-polish .hero-text-link{flex-basis:100%;justify-content:flex-start}}
+
+/* The four existing service links become a consistent two-by-two card grid. */
+.landing-polish .service-bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:14px}
+.landing-polish .service-tile,.landing-polish .tile-web,.landing-polish .tile-custom,.landing-polish .tile-ready,.landing-polish .tile-support{grid-column:auto;grid-row:auto;min-height:260px;padding:clamp(1.35rem,3vw,2.3rem);border-radius:16px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.landing-polish .service-tile,.landing-polish .work-card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+.landing-polish .tile-web{background:linear-gradient(145deg,#e8794f,#bd5231);color:#fff}
+.landing-polish .tile-custom{background-color:#17181a;background-image:linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:24px 24px}
+.landing-polish .tile-ready{background:#f3efe8;color:#191817}
+.landing-polish .tile-support{background:linear-gradient(145deg,#70402b,#4d2b20);color:#fff}
+.landing-polish .service-tile:hover{transform:translateY(-4px);box-shadow:0 18px 38px #0005}
+.landing-polish .service-tile .tile-index{font-size:clamp(2.1rem,4vw,3.5rem);line-height:1;letter-spacing:-.08em;opacity:.68}
+.landing-polish .service-tile h3{margin-top:1rem}
+.landing-polish .tile-ready h3{color:#191817}
+.landing-polish .tile-ready p{color:#514b46}
+.landing-polish .tile-ready .tile-index{color:#514b46}
+.landing-polish .tile-ready .tile-arrow{border-color:#19181738;background:#ffffff90;color:#191817}
+.landing-polish .service-tile:not(.tile-ready) .tile-arrow{display:grid;width:38px;height:38px;place-items:center;border:1px solid #ffffff5c;border-radius:50%;background:#00000014;color:#fff}
+.landing-polish .service-tile:hover .tile-arrow{transform:none}
+@media(max-width:700px){.landing-polish .service-bento{grid-template-columns:1fr;gap:10px}.landing-polish .service-tile,.landing-polish .tile-web,.landing-polish .tile-custom,.landing-polish .tile-ready,.landing-polish .tile-support{min-height:205px;padding:1.15rem}.landing-polish .tile-icon{margin:1.1rem 0 auto}}
+
+/* Keep product descriptions as cards without the former invented mock screens. */
+.landing-polish .work-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-bottom:0}
+.landing-polish .work-card{position:relative;top:auto;display:flex;min-height:230px;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:1.5rem;border:1px solid #ffffff20;border-radius:16px;background:#171719;box-shadow:0 12px 30px #0003;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.landing-polish .work-card:nth-child(2){background:#1b1b1d}
+.landing-polish .work-card:nth-child(3){background:#211a17}
+.landing-polish .work-card:hover,.landing-polish .work-card:focus-visible{transform:translateY(-3px);border-color:#d8a18c;box-shadow:0 17px 36px #0005}
+.landing-polish .work-product-window,.landing-polish .view-bubble{display:none}
+.landing-polish .work-card-copy h3{max-width:none;font-size:clamp(1.65rem,2.6vw,2.35rem)}
+.landing-polish .work-card-copy p{margin:0}
+@media(max-width:700px){.landing-polish .work-stack{grid-template-columns:1fr}.landing-polish .work-card{min-height:190px;padding:1.25rem}}
+
+/* Retain the existing split section and bullets, restyled as quote and chips. */
+.landing-polish .room-founder .founder-grid{gap:clamp(2rem,6vw,5rem)}
+.landing-polish .founder-copy>p{color:#d2ccc5}
+.landing-polish .founder-chips span{border-color:#ffffff2a;background:#ffffff06}
+
+/* Full-width close and a quieter, column-based footer. */
+.landing-polish .room-cta{min-height:0;padding:clamp(3.5rem,8vw,7rem) 0;background:linear-gradient(112deg,#b95634 0%,#d9693b 54%,#a94b2d 100%)}
+.landing-polish .room-cta .room-eyebrow{color:#fff0e8}
+.landing-polish .room-cta h2{color:#fffaf6}
+.landing-polish .room-cta h2 em{color:#2b1a14}
+.landing-polish .room-cta .room-button{min-height:56px;padding:.95rem 1.45rem;border-color:#ffffff9c;background:#fff7f1;color:#261812;box-shadow:0 8px 24px #46211633}
+.landing-polish .room-cta .room-button:hover{background:#fff;color:#171313}
+.landing-polish .cta-contact a,.landing-polish .cta-contact span{color:#fff1e9}
+.landing-polish .room-footer{border-top:1px solid #ffffff24;padding-top:3rem}
+.landing-polish .room-footer-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+.landing-polish .room-footer-top{border-bottom-color:#ffffff24}
+.landing-polish .room-copyright{border-top-color:#ffffff24}
+@media(max-width:600px){.landing-polish .room-footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Scroll reveals stay fully visible; only the short hero load fade is animated. */
+.landing-polish .scroll-reveal,.landing-polish .scroll-reveal.reveal-pending,.landing-polish .scroll-reveal.is-visible{opacity:1;transform:none;transition:none!important}
