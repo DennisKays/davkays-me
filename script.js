@@ -22,23 +22,16 @@ if(topbar){
   updateTopbar();window.addEventListener('scroll',updateTopbar,{passive:true});
 }
 if('IntersectionObserver'in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  if(document.body.classList.contains('room-page'))document.body.classList.add('reveal-ready');
-  const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
-  document.querySelectorAll('main section:not(.hero),.card,.project-card,.service-row,.contact-note,.portfolio-design-card,.process-line').forEach(element=>{element.classList.add('scroll-reveal');revealObserver.observe(element)});
-}
-if(document.body.classList.contains('room-page')){
-  const hero=document.querySelector('.room-hero');
-  const devices=document.querySelectorAll('.hero-device[data-parallax]');
-  if(hero&&window.matchMedia('(pointer:fine)').matches){
-    hero.addEventListener('pointermove',event=>{
-      const bounds=hero.getBoundingClientRect();
-      const x=(event.clientX-bounds.left)/bounds.width-.5;
-      const y=(event.clientY-bounds.top)/bounds.height-.5;
-      hero.style.setProperty('--glow-x',`${event.clientX-bounds.left}px`);
-      hero.style.setProperty('--glow-y',`${event.clientY-bounds.top}px`);
-      devices.forEach(device=>{const depth=Number(device.dataset.parallax)||1;device.style.setProperty('--px',`${x*depth*18}px`);device.style.setProperty('--py',`${y*depth*18}px`);device.style.setProperty('--tilt-x',`${-y*depth*4}deg`);device.style.setProperty('--tilt-y',`${x*depth*6}deg`)});
-    });
-    hero.addEventListener('pointerleave',()=>devices.forEach(device=>{device.style.setProperty('--px','0px');device.style.setProperty('--py','0px');device.style.setProperty('--tilt-x','0deg');device.style.setProperty('--tilt-y','0deg')}));
+  const roomPage=document.body.classList.contains('room-page');
+  if(roomPage){
+    const revealTargets=document.querySelectorAll('.room-page .scroll-reveal');
+    if(revealTargets.length){
+      const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');entry.target.classList.remove('reveal-pending');revealObserver.unobserve(entry.target)}}),{threshold:.1,rootMargin:'0px 0px 160px 0px'});
+      revealTargets.forEach(element=>{element.classList.add('reveal-pending');revealObserver.observe(element)});
+      setTimeout(()=>revealTargets.forEach(element=>{element.classList.add('is-visible');element.classList.remove('reveal-pending')}),1200);
+    }
+  }else{
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
+    document.querySelectorAll('main section:not(.hero),.card,.project-card,.service-row,.contact-note,.portfolio-design-card,.process-line').forEach(element=>{element.classList.add('scroll-reveal');revealObserver.observe(element)});
   }
-  document.querySelectorAll('.magnetic').forEach(button=>{button.addEventListener('pointermove',event=>{if(!window.matchMedia('(pointer:fine)').matches)return;const rect=button.getBoundingClientRect();button.style.transform=`translate(${(event.clientX-rect.left-rect.width/2)*.08}px,${(event.clientY-rect.top-rect.height/2)*.12}px)`});button.addEventListener('pointerleave',()=>button.style.transform='')});
 }

@@ -1,31 +1,38 @@
-/* Cursor response and motion-safe details for ROOM. */
-.hero-device-books{transform:rotateY(calc(-17deg + var(--tilt-y,0deg))) rotateX(calc(5deg + var(--tilt-x,0deg))) rotateZ(4deg) translate3d(var(--px,0),var(--py,0),0)}
-.hero-device-school{transform:rotateY(calc(14deg + var(--tilt-y,0deg))) rotateX(calc(-4deg + var(--tilt-x,0deg))) rotateZ(-5deg) translate3d(var(--px,0),var(--py,0),0)}
-.hero-device-food{transform:rotateY(calc(12deg + var(--tilt-y,0deg))) rotateX(calc(4deg + var(--tilt-x,0deg))) rotateZ(-8deg) translate3d(var(--px,0),var(--py,0),0)}
-.room-page .business-countdown{order:0}
-.room-hero h1{font-size:clamp(4.2rem,9vw,9rem)}
-.hero-device-books{right:-1%;width:39%;opacity:.32}.hero-device-school{right:-1%;bottom:3%;width:39%;opacity:.23}.hero-device-food{right:8%;bottom:3%;left:auto;width:13%;opacity:.34}
-@media(max-width:1000px){.hero-device-books{top:10%;right:-20%;width:66%;opacity:.28}.hero-device-school{right:-18%;bottom:4%;width:75%;opacity:.2}.hero-device-food{right:4%;bottom:4%;left:auto;width:14%;opacity:.34}}
-@media(max-width:700px){.room-hero h1{font-size:clamp(3.2rem,15vw,3.6rem)}.hero-device-food{right:6%;bottom:4%;left:auto;width:18%;opacity:.3}}
+/* The original photo-led hero, with a left-only readability gradient. */
+.room-site{scroll-behavior:auto}
+.room-page .room-hero{position:relative;min-height:0;overflow:hidden;border-bottom:1px solid var(--room-line);background:#0b0b0c}
+.room-page .room-hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(112px,14vh,150px) 0 48px}
+.room-page .room-hero-copy{position:relative;z-index:2;width:min(100%,680px);margin:0;pointer-events:auto}
+.room-page .room-hero h1{max-width:11.5ch;font-size:clamp(3.2rem,7.1vw,6.5rem);line-height:.96}
+.room-page .room-hero-photo{position:absolute;z-index:0;inset:0;width:100%;height:100%;max-width:none;margin:0;border-radius:0;pointer-events:none}
+.room-page .room-hero-photo img{display:block;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center 48%;border-radius:0;filter:saturate(.82) contrast(1.04)}
+.room-page .room-hero-photo:after{position:absolute;inset:0;content:"";border-radius:0;pointer-events:none;background:linear-gradient(90deg,#0b0b0cf2 0%,#0b0b0cdb 34%,#0b0b0c82 62%,transparent 84%)}
+.room-page .scroll-cue{position:relative;bottom:auto;left:auto;margin:1.7rem 0 0;transform:none}
+@media(max-width:700px){.room-page .room-hero-inner{min-height:0;padding:120px 0 36px}.room-page .room-hero h1{max-width:11ch;font-size:clamp(3rem,11.5vw,4.25rem)}.room-page .room-hero-photo img{object-position:60% center}.room-page .room-hero-photo:after{background:linear-gradient(90deg,#0b0b0cf2 0%,#0b0b0cdb 50%,#0b0b0c72 78%,transparent 100%)}.room-page .room-hero-actions{flex-wrap:wrap}.room-page .scroll-cue{margin-top:1.4rem}}
 
-/* A clearer, text-first hero: keep the product work beside the message, never on top of it. */
-.room-hero{min-height:min(920px,100svh);background:radial-gradient(ellipse at 72% 48%,#e8643a12 0,transparent 40%),linear-gradient(180deg,#0b0b0c,#101011 70%,#0b0b0c)}
-.room-hero-inner{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(1.5rem,4vw,4.5rem);align-items:center;justify-content:stretch;padding:128px 0 104px}
-.room-hero-copy{grid-column:1;grid-row:1;width:auto;margin:0;pointer-events:auto}
-.room-hero h1{max-width:10ch;font-size:clamp(4.2rem,7vw,7.7rem);line-height:.9}
-.room-hero-copy>p{max-width:31rem}
-.hero-collage{position:relative;inset:auto;grid-column:2;grid-row:1;height:clamp(390px,48vw,610px);opacity:1}
-.hero-device{opacity:1!important;border-color:#ffffff44;box-shadow:0 28px 80px #0009,0 0 34px #e8643a12}
-.hero-device-books{top:6%;right:2%;width:88%;transform:rotateY(-9deg) rotateX(2deg) rotateZ(2deg) translate3d(var(--px,0),var(--py,0),0)}
-.hero-device-school{right:13%;bottom:2%;width:76%;transform:rotateY(8deg) rotateX(-2deg) rotateZ(-3deg) translate3d(var(--px,0),var(--py,0),0)}
-.hero-device-food{right:1%;bottom:1%;left:auto;width:20%;transform:rotateY(8deg) rotateX(2deg) rotateZ(5deg) translate3d(var(--px,0),var(--py,0),0)}
-.room-hero h1 .hero-word{animation:room-word-in .6s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--word-index,0)*55ms + 40ms)}
-@keyframes room-word-in{from{opacity:.72;transform:translateY(.18em);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
-.room-section .wrap{width:min(calc(100% - 48px),1200px)}
-.room-page .scroll-reveal{opacity:1;transform:none}
-.room-page.reveal-ready .scroll-reveal{opacity:0;transform:translateY(20px)}
-.room-page.reveal-ready .scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
-@media(max-width:1000px){.room-hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,.88fr);gap:1.5rem}.room-hero h1{font-size:clamp(3.7rem,7vw,5.3rem)}.hero-collage{height:460px}.hero-device-books{right:-8%;width:104%}.hero-device-school{right:0;width:92%}.hero-device-food{right:-5%;width:24%}}
-@media(max-width:700px){.room-hero{min-height:0}.room-hero-inner{display:flex;min-height:0;flex-direction:column;align-items:stretch;gap:1.2rem;padding:132px 0 84px}.room-hero-copy{order:0;margin:0}.room-hero h1{max-width:9.5ch;font-size:clamp(3.35rem,15vw,4.2rem);line-height:.91}.room-hero-copy>p{max-width:27ch}.hero-collage{order:1;width:100%;height:clamp(260px,75vw,340px);margin-top:.3rem}.hero-device-books{top:2%;right:2%;width:83%}.hero-device-school{right:10%;bottom:0;width:76%}.hero-device-food{right:0;bottom:0;width:21%}.scroll-cue{bottom:20px}.room-hero-actions{flex-wrap:wrap}}
-@media(max-width:390px){.room-hero h1{font-size:clamp(3.15rem,14.8vw,3.55rem)}.room-hero-inner{padding-top:126px}.hero-collage{height:260px}}
-@media(prefers-reduced-motion:reduce){.room-page .scroll-reveal,.room-page.reveal-ready .scroll-reveal{opacity:1;transform:none}}
+/* Reveal styling is progressive enhancement: pending content remains readable. */
+.room-page .scroll-reveal{opacity:1;transform:none;transition:opacity .32s ease,transform .32s ease}
+.room-page .scroll-reveal.reveal-pending{opacity:.82;transform:translateY(10px)}
+.room-page .scroll-reveal.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.room-page .scroll-reveal,.room-page .scroll-reveal.reveal-pending{opacity:1;transform:none;transition:none}}
+
+/* Keep the long-form sections in normal document flow without pinned gaps. */
+.room-page .work-stack{padding-bottom:0}
+.room-page .work-card{position:relative;top:auto!important;min-height:0}
+.room-page .room-cta{min-height:0}
+.room-page *,.room-page *:before,.room-page *:after{animation:none!important;transition:none!important}
+.room-page .scroll-reveal{transition:opacity .32s ease,transform .32s ease!important}
+.room-page .room-button,.room-page .navlinks .nav-cta,.room-page .chat-launch{transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease!important}
+.room-page .service-tile,.room-page .work-card,.room-page .work-product-window,.room-page .view-bubble{transition:none!important}
+.room-page .process-line i{transform:none;transition:none}
+.room-page .service-tile:hover .tile-arrow,.room-page .room-text-link:hover span{transform:none}
+
+/* The capability list remains static; no looping marquee or decorative motion. */
+.room-page .marquee-track{display:block;width:auto;animation:none}
+.room-page .marquee-group{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2.5rem;padding:22px 24px}
+.room-page .marquee-group[aria-hidden="true"]{display:none}
+.room-page .room-marquee{overflow:visible}
+.room-page .scroll-cue i:after{content:none}
+.room-page .service-tile:before{content:none}
+.room-page .service-tile:hover{transform:none}
+.room-page .work-product-window,.room-page .work-card:hover .work-product-window,.room-page .work-card:focus-within .work-product-window{transform:none;transition:none}
