@@ -221,7 +221,7 @@ Requested features: ${q.functionality}
 `:""}
 Please confirm scope, supplier costs, availability, and the formal quotation.
 `);
-    byId("quote-email").href=`mailto:davidkanyurira6@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    byId("quote-email").href=`mailto:info@davkays.me?subject=${emailSubject}&body=${emailBody}`;
     const waText=encodeURIComponent(`Hello DavKays, please review estimate ${q.ref} for ${q.package.name}. Development price shown: ${calc.developmentLabel}. First-year total: ${calc.firstYearProvisional?"To be confirmed":calc.firstYearLabel}. Name: ${q.name}. Project: ${q.description.slice(0,500)}`);
     byId("quote-whatsapp").href=`https://wa.me/263711881780?text=${waText}`;
     gotoStep(4);

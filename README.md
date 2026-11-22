@@ -4,7 +4,7 @@ A lightweight, responsive static website for DavKays. No build step, framework, 
 
 ## Before launch
 
-1. Confirm that `davidkanyurira6@gmail.com` is monitored and that the domain points to the chosen host.
+1. Confirm that forwarding for `info@davkays.me` reaches the monitored inbox and that the domain points to the chosen host.
 2. Review the privacy, terms, and accessibility pages. The legal pages are general drafts, not legal advice; align them with your jurisdiction, hosting provider, business details, and actual practices.
 3. The contact form opens a prefilled `mailto:` message. It does not submit to a server. For an on-page submission experience, connect an email/form provider and update the privacy policy.
 4. The homepage image and Google Fonts currently load from external hosts. For stricter privacy or fully self-hosted performance, use appropriately licensed local image/font files and update `index.html`, `style.css`, and its Open Graph image.
@@ -21,7 +21,7 @@ A lightweight, responsive static website for DavKays. No build step, framework, 
 - `pricing-config.js`, `pricing-display.js`, `quote.html`, `quote.js`, `quote-pricing.js`: public pricing configuration and browser-only quote builder
 - `tests/quote-pricing.test.js`: non-destructive calculator and static accessibility checks; run with `node --test tests/quote-pricing.test.js`
 
-Contact details shown: `davidkanyurira6@gmail.com`, call `078 240 0100`, WhatsApp `071 188 1780`. Hours are Monday to Friday 8:00 am to 4:00 pm, Saturday 9:00 am to 1:00 pm, and Sunday email only (Zimbabwe time, CAT).
+Contact details shown: `info@davkays.me`, call `078 240 0100`, WhatsApp `071 188 1780`. Hours are Monday to Friday 8:00 am to 4:00 pm, Saturday 9:00 am to 1:00 pm, and Sunday email only (Zimbabwe time, CAT).
 
 ## Namecheap domain
 
