@@ -22,6 +22,7 @@ if(topbar){
   updateTopbar();window.addEventListener('scroll',updateTopbar,{passive:true});
 }
 if('IntersectionObserver'in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  if(document.body.classList.contains('room-page'))document.body.classList.add('reveal-ready');
   const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.12});
   document.querySelectorAll('main section:not(.hero),.card,.project-card,.service-row,.contact-note,.portfolio-design-card,.process-line').forEach(element=>{element.classList.add('scroll-reveal');revealObserver.observe(element)});
 }
