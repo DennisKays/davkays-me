@@ -82,7 +82,7 @@
     const hours = String(Math.floor(secondsLeft / 3600)).padStart(2, "0");
     const minutes = String(Math.floor((secondsLeft % 3600) / 60)).padStart(2, "0");
     const seconds = String(secondsLeft % 60).padStart(2, "0");
-    return { label: "Time until closing", value: `${hours}:${minutes}:${seconds}`, state };
+    return { label: "Time until closing", value: `Open now · ${hours}:${minutes}:${seconds}`, state };
   }
   function updateBusinessClock() {
     const clock = document.querySelector("[data-business-time]");
@@ -112,7 +112,7 @@
   if (nav) {
     const label = document.createElement("label");
     label.className = "locale-picker";
-    label.append(document.createTextNode("Greeting "));
+    label.innerHTML = '<svg class="locale-globe" aria-hidden="true" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.25"/><path d="M2.9 10h14.2M10 2.75c2 2.1 3 4.52 3 7.25s-1 5.15-3 7.25c-2-2.1-3-4.52-3-7.25s1-5.15 3-7.25Z"/></svg><span class="locale-label">Greeting</span>';
     const select = document.createElement("select");
     select.setAttribute("aria-label", languages[language].label);
     for (const code of options) {
@@ -140,10 +140,13 @@
     const countdown = document.createElement("div");
     countdown.className = "business-countdown";
     countdown.dataset.businessCountdown = "";
-    countdown.setAttribute("role", "timer");
+    countdown.setAttribute("aria-label", "Business status");
     countdown.setAttribute("aria-live", "off");
     countdown.innerHTML = '<span class="business-countdown-label" data-countdown-label></span><strong class="business-countdown-value" data-countdown-value></strong>';
-    document.body.append(countdown);
+    const nav = document.querySelector(".nav");
+    const logo = nav?.querySelector(".logo");
+    if (logo) logo.after(countdown);
+    else document.body.append(countdown);
   }
 
   window.DavKaysLocale = {
