@@ -448,3 +448,7 @@ html.landing-site,body.landing-app,.landing-app main{background:#0b0908;color:#f
 
 .landing-app .brand-mark{filter:brightness(2.35) contrast(1.12) drop-shadow(0 0 7px #e7b98ec9)}
 @media(max-width:700px){.landing-app .brand-mark{filter:brightness(2.5) contrast(1.12) drop-shadow(0 0 6px #e7b98edd)}}
+
+/* Keep the fixed assistant on the full-screen hero, clear of footer links. */
+.landing-app .room-hero,.landing-app .room-hero-inner{min-height:calc(100svh - 74px)}
+@media(max-width:1000px){.landing-app .room-hero,.landing-app .room-hero-inner{min-height:calc(100svh - 66px)}}
