@@ -455,5 +455,5 @@ html.landing-site,body.landing-app,.landing-app main{background:#0b0908;color:#f
 
 /* Nudge the hero copy left and keep the assistant clear of the screen edge. */
 @media(min-width:1001px){.landing-app .room-hero-copy{transform:translateX(-120px)}}
-.landing-app .chat-launch,.landing-app[data-active-screen="home"] .chat-launch{right:42px;bottom:36px}
+.landing-app .chat-launch,.landing-app[data-active-screen="home"] .chat-launch{right:42px;bottom:36px;z-index:85}
 @media(max-width:700px){.landing-app .room-hero-copy{transform:none}.landing-app .chat-launch,.landing-app[data-active-screen="home"] .chat-launch{right:24px;bottom:28px}}
