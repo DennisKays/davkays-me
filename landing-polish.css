@@ -451,4 +451,4 @@ html.landing-site,body.landing-app,.landing-app main{background:#0b0908;color:#f
 
 /* Keep the fixed assistant on the full-screen hero, clear of footer links. */
 .landing-app .room-hero,.landing-app .room-hero-inner{min-height:calc(100dvh - 74px)}
-@media(max-width:1000px){.landing-app .room-hero,.landing-app .room-hero-inner{min-height:calc(100dvh - 66px)}}
+@media(max-width:1000px){.landing-app .room-hero,.landing-app .room-hero-inner{min-height:max(780px,calc(100vh - 66px))}}
