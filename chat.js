@@ -40,7 +40,9 @@
   suggestions.setAttribute("aria-label", "Common questions");
   [
     { label: "Services", question: "What services do you offer?" },
-    { label: "Pricing", question: "How does pricing work?" },
+    { label: "Website prices", question: "What are your website prices?" },
+    { label: "Build a quote", question: "I would like a project quote." },
+    { label: "Request a meeting", question: "I would like to request a meeting." },
     { label: "Opening hours", question: "When are you open?" },
     { label: "Contact", question: "How can I contact you?" }
   ].forEach(({ label, question }) => {
@@ -83,17 +85,111 @@
     return question.toLocaleLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
   }
 
+  function catalogItem(id) {
+    return window.DAVKAYS_PRICING?.catalog?.find(item => item.id === id);
+  }
+
+  function money(value) {
+    const currency = window.DAVKAYS_PRICING?.currency || "USD";
+    return new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 2 }).format(value);
+  }
+
+  function priceLabel(item) {
+    if (!item || item.min == null) return "custom quotation after requirements review";
+    if (item.max == null) return `from ${money(item.min)}`;
+    return `${money(item.min)}–${money(item.max)}`;
+  }
+
+  function requestedPackage(text) {
+    const matches = [
+      [["personal portfolio", "portfolio site"], "personal-portfolio"],
+      [["landing page", "personal landing"], "personal-landing"],
+      [["business website", "company website"], "business-website"],
+      [["starter website", "small business website"], "starter-website"],
+      [["online store", "ecommerce", "e commerce", "online shop"], "online-store"],
+      [["blog"], "personal-blog"],
+      [["cv website", "resume website", "personal website", "personal site"], "cv-site"],
+      [["database app", "database application", "web application"], "database-app"],
+      [["management system", "school system", "booking system", "custom system"], "management-system"],
+      [["spreadsheet automation", "forms and sheets", "forms and spreadsheet"], "forms-sheets"],
+      [["workflow integration", "integrate workflows"], "workflow-integration"],
+      [["automation", "automate"], "simple-automation"],
+      [["software fix", "software repair", "fix my software", "troubleshoot"], "software-fix"],
+      [["maintenance", "support plan", "system support"], "system-support"],
+      [["business tool", "simple tool"], "simple-tool"]
+    ];
+    for (const [phrases, id] of matches) {
+      if (phrases.some(phrase => text.includes(phrase))) return catalogItem(id);
+    }
+    if (text === "cv" || text.includes("resume") || text.includes("curriculum vitae")) return catalogItem("cv-site");
+    return null;
+  }
+
+  function quoteLink(item) {
+    return { label: `Build a ${item?.name || "project"} quote`, href: item ? `/quote.html?service=${encodeURIComponent(item.id)}` : "/quote.html" };
+  }
+
   function answer(question) {
     const text = normalize(question);
     const has = (...terms) => terms.some(term => text.includes(term));
+    const item = requestedPackage(text);
+    const asksForPrice = has("price", "pricing", "cost", "how much", "charge", "budget", "expensive", "rate", "rates");
+    const asksForQuote = has("quote", "quotation", "estimate", "how do i start", "get started", "start a project", "request", "build a quote");
 
-    if (has("price", "pricing", "cost", "how much", "charge", "budget", "expensive")) {
+    if (has("meeting", "appointment", "schedule a call", "book a call", "book a meeting", "schedule a meeting", "consultation", "calendar", "set up a call")) {
+      const preferredTime = question.trim().slice(0, 300);
+      const requestText = encodeURIComponent(`Hello DavKays, I would like to request a meeting. My preferred date, time, and time zone are: ${preferredTime}. Please confirm availability.`);
       return {
-        text: "Prices depend on the work you need. The Services page shows starting prices for some website and automation packages. Custom systems are priced after we understand the idea, and supplier charges such as domains or hosting are confirmed separately.",
-        links: [{ label: "See services and starting prices", href: "/services.html#pricing" }, { label: "Build a quote", href: "/quote.html" }]
+        text: "I can help send a meeting request, but I cannot see a live calendar or confirm a slot. Include your preferred date, time, time zone, and a backup option; DavKays will confirm manually.",
+        links: [{ label: "Request a time on WhatsApp", href: `https://wa.me/263711881780?text=${requestText}` }, { label: "Use the contact page", href: "/contact.html" }]
       };
     }
-    if (has("hour", "hours", "open", "opening", "closed", "close", "available", "sunday", "saturday", "time")) {
+
+    if (asksForQuote && item) {
+      return {
+        text: `I can start a preliminary ${item.name} estimate at ${priceLabel(item)} USD for the listed scope. The quote builder will ask what you need and prepare an itemised estimate. Supplier costs, final scope, and timing are confirmed separately; the estimate is not a formal quotation.`,
+        links: [quoteLink(item), { label: "Ask a question first", href: "/contact.html" }]
+      };
+    }
+
+    if (asksForPrice && item) {
+      return {
+        text: `${item.name} is ${priceLabel(item)} USD for the listed development scope. Custom work, supplier costs, and timing need confirmation. You can build a preliminary itemised estimate below; it is not a formal quotation.`,
+        links: [quoteLink(item), { label: "See all prices", href: "/services.html#pricing" }]
+      };
+    }
+
+    if (asksForPrice && (has("maintenance", "monthly", "care plan", "support plan"))) {
+      const plans = window.DAVKAYS_PRICING?.maintenance || [];
+      const rates = plans.map(plan => `${plan.name}: ${plan.monthly == null ? "price to be confirmed" : `${money(plan.monthly)}/month`}`).join("; ");
+      return {
+        text: `Published maintenance starting rates are ${rates}. Work limits, schedule, response times, and terms must still be reviewed and agreed in writing.`,
+        links: [{ label: "Discuss a support quote", href: "/quote.html?service=system-support" }, { label: "Read support details", href: "/services.html#support" }]
+      };
+    }
+
+    if (asksForPrice) {
+      const ids = ["cv-site", "starter-website", "business-website", "online-store", "simple-automation", "simple-tool"];
+      const examples = ids.map(id => catalogItem(id)).filter(Boolean).map(entry => `${entry.name}: ${priceLabel(entry)}`).join("; ");
+      return {
+        text: `Published development examples (USD): ${examples}. Custom systems and any unlisted work need a scope review. Domain, hosting, email, and other supplier charges are confirmed separately.`,
+        links: [quoteLink(), { label: "See all prices", href: "/services.html#pricing" }]
+      };
+    }
+
+    if (has("deposit", "payment", "pay", "installment", "instalment", "when do i pay")) {
+      const terms = window.DAVKAYS_PRICING?.paymentTerms || "Payment terms are confirmed in writing before work begins.";
+      return { text: `${terms} A browser-generated estimate is preliminary; final scope and payment terms are confirmed in writing.`, links: [quoteLink(item), { label: "Ask about payment", href: "/contact.html" }] };
+    }
+
+    if (has("how long", "delivery time", "turnaround", "when will", "deadline", "how soon")) {
+      return {
+        text: "Timing depends on the agreed scope, content, and availability. The quote builder does not promise a delivery date; DavKays confirms a schedule after reviewing your requirements.",
+        links: [quoteLink(item), { label: "Discuss a project timeline", href: "/contact.html" }]
+      };
+    }
+
+    if (has("hour", "hours", "open", "opening", "closed", "close", "available", "sunday", "saturday")) {
       return {
         text: "Business hours are shown in Harare time (CAT, UTC+2): Monday to Friday, 8 am to 4 pm; Saturday, 9 am to 1 pm; Sunday, email only. The live timer on the site shows the time left before closing when calls are open.",
         links: [{ label: "See current hours and contact options", href: "/contact.html" }]
@@ -131,8 +227,8 @@
     }
     if (has("custom", "build me", "build for me", "from scratch", "automation", "automate", "website", "web site", "business system", "software system", "services", "service", "what do you do", "what do you offer")) {
       return {
-        text: "DavKays offers ready-made systems, custom websites and software, workflow automation, software fixing, and ongoing support. Share what you want to make easier, and we can work out a sensible next step.",
-        links: [{ label: "Explore all services", href: "/services.html" }, { label: "Tell us what you need", href: "/contact.html" }]
+        text: "DavKays offers ready-made systems, custom websites and software, workflow automation, software fixing, and ongoing support. What are you trying to make easier, who will use it, and which features matter most? A target date or budget can help too.",
+        links: [quoteLink(item), { label: "Explore all services", href: "/services.html" }, { label: "Tell us what you need", href: "/contact.html" }]
       };
     }
     if (has("project", "portfolio", "work you built", "examples", "past work", "show me your work")) {
@@ -153,17 +249,17 @@
         links: [{ label: "Open contact options", href: "/contact.html" }]
       };
     }
-    if (has("quote", "quotation", "estimate", "how do i start", "get started", "start a project", "request")) {
+    if (asksForQuote) {
       return {
-        text: "Start with the quote builder or send a short message. You do not need a technical brief; describe the problem and we can clarify the details together.",
-        links: [{ label: "Start a quote", href: "/quote.html" }, { label: "Send a message", href: "/contact.html" }]
+        text: "Tell me what you want to make easier, who will use it, the features you need, and any target date or budget. The quote builder can turn your selected service and details into a preliminary itemised estimate for you to review.",
+        links: [quoteLink(item), { label: "Send a message", href: "/contact.html" }]
       };
     }
     if (/^(hi|hello|hey|good morning|good afternoon|good evening)$/.test(text)) {
       return { text: "Hello. What would you like help with: a website, a system, software fixing, pricing, or support?" };
     }
     return {
-      text: "I can help with basic questions about services, pricing, opening hours, projects, software fixing, support, or contact options. Try one of the questions below, or send DavKays a message.",
+      text: "Ask me about services, published prices, project quotes, meeting requests, opening hours, software fixing, or support. For a tailored estimate, tell me what you need and who will use it; for a meeting, share your preferred time and time zone.",
       links: [{ label: "Contact DavKays", href: "/contact.html" }]
     };
   }
