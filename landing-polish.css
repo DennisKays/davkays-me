@@ -295,3 +295,103 @@ body.landing-app:not(.screens-ready) .room-hero-inner{min-height:0;padding:6rem 
 body.landing-app:not(.screens-ready) .room-marquee{display:block;height:auto;min-height:0;padding:1rem}
 body.landing-app:not(.screens-ready) .capability-panels{grid-template-columns:1fr}
 body.landing-app:not(.screens-ready) .room-footer[data-screen]{position:relative;display:block!important;height:auto;min-height:190px;overflow:visible}
+
+/* Scrollable home page, shared typography, and a white/black/chrome palette. */
+html.landing-site{height:auto;min-height:100%;overflow-x:clip;overflow-y:auto;scroll-behavior:smooth;background:#f3f4f5}
+body.landing-app{position:relative;inset:auto;width:100%;height:auto;min-height:100%;overflow-x:clip;overflow-y:auto;background:#f3f4f5;color:#17191b;font-family:var(--sans);}
+.landing-app{--dk-black:#101113;--dk-panel:#fff;--dk-panel-soft:#eceeef;--dk-white:#17191b;--dk-muted:#52575c;--dk-silver:#8c9298;--dk-silver-soft:#666d73;--dk-chrome:#92989e;--dk-chrome-light:#c4c8cc;--dk-line:#17191b20;--dk-footer-height:0px;position:relative;inset:auto;overflow:visible;background:#f3f4f5;color:#17191b;font-family:var(--sans)}
+.landing-app h1,.landing-app h2,.landing-app h3,.landing-app .wordmark,.landing-app .room-button,.landing-app .navlinks a{font-family:var(--head)}
+.landing-app .topbar{position:sticky;top:0;inset:auto;z-index:70;height:auto;background:#f3f4f5eF;border-bottom:1px solid #17191b15;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transform:none}
+.landing-app .topbar.is-hidden{transform:none}
+.landing-app .nav{width:min(calc(100% - 40px),1200px);height:74px;min-height:0;margin:0 auto;padding:0 8px;border:0;border-radius:0;background:transparent;box-shadow:none;gap:12px}
+.landing-app .nav:before{inset:auto;display:none}
+.landing-app .nav:after{display:none}
+.landing-app .logo .wordmark{color:#17191b}
+.landing-app .logo .wordmark span{color:#747b81}
+.landing-app .business-countdown{background:#fff;border-color:#c6cacf;color:#17191b;box-shadow:0 2px 8px #17191b0b}
+.landing-app .business-countdown-value{color:#454a4f}
+.landing-app .navlinks>a:not(.nav-cta){color:#3b4045;font-size:.82rem}
+.landing-app .navlinks>a:not(.nav-cta):hover,.landing-app .navlinks>a[aria-current="page"]{color:#111315}
+.landing-app .navlinks .nav-cta,.landing-app .room-button,.landing-app .chat-launch{border-color:#aeb4b9;background:linear-gradient(135deg,#dfe2e5,#aeb4b9);color:#111315;box-shadow:0 7px 22px #17191b1b}
+.landing-app .navlinks .nav-cta:hover,.landing-app .room-button:hover,.landing-app .chat-launch:hover{background:linear-gradient(135deg,#f5f6f7,#c7cbd0);color:#111315;box-shadow:0 10px 26px #17191b24}
+.landing-app .menu{border-color:#bfc4c9;background:#fff;color:#17191b}
+.landing-app .menu span{background:#17191b}
+.landing-app .navlinks{z-index:80}
+.landing-app main{position:relative;inset:auto;z-index:1;display:block;width:100%;height:auto;overflow:visible;padding:0;background:#f3f4f5}
+.landing-app main>section{position:relative;display:block!important;flex:none;width:100%;height:auto;min-width:0;min-height:0;overflow:visible;border:0;border-bottom:1px solid #17191b17;animation:none}
+.landing-app main>[data-screen]:not(.is-active){display:block!important}
+.landing-app .room-hero{display:flex!important;min-height:clamp(600px,82svh,820px);align-items:center;overflow:hidden;background:#0b0c0e}
+.landing-app .room-hero-inner{width:min(calc(100% - 64px),1200px);min-height:clamp(600px,82svh,820px);align-items:center;padding:100px 0 70px}
+.landing-app .room-hero-copy{width:min(70%,760px);margin:0}
+.landing-app .room-hero h1{font-family:var(--head);color:#f5f6f7}
+.landing-app .room-hero h1 span:last-child{color:#bfc3c7}
+.landing-app .hero-statement{font-family:var(--head);color:#f5f6f7}
+.landing-app .hero-statement em{color:#c4c8cc;font-family:var(--serif)}
+.landing-app .room-kicker{color:#d6d9dc}
+.landing-app .room-kicker i{background:#aeb4b9;box-shadow:0 0 14px #bfc3c755}
+.landing-app .room-hero-copy>p{color:#d0d3d6}
+.landing-app .room-ghost{color:#f2f3f4}
+.landing-app .hero-text-link{color:#c9cdd1}
+.landing-app .room-marquee{display:block!important;height:auto;min-height:0;padding:48px 24px;background:#e7e9eb;color:#17191b}
+.landing-app .capability-panels{width:min(100%,1200px);height:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:auto}
+.landing-app .capability-panel{min-height:116px;justify-content:center;gap:.35rem;border:1px solid #aeb4b939;border-radius:16px;background:#fff;color:#202326;box-shadow:0 8px 25px #17191b0a}
+.landing-app .capability-panel span{color:#34393e;font:600 clamp(.95rem,1.4vw,1.15rem)/1.25 var(--head);letter-spacing:-.02em}
+.landing-app .room-process{padding:clamp(72px,9vw,118px) 24px;background:#f3f4f5;color:#17191b}
+.landing-app .room-process .wrap{width:min(100%,1200px)}
+.landing-app .room-eyebrow{color:#666d73}
+.landing-app .room-section-head h2,.landing-app .founder-copy h2{color:#17191b;font-family:var(--head);font-size:clamp(2.4rem,5vw,4.6rem);line-height:1;letter-spacing:-.065em}
+.landing-app .process-step h3{color:#17191b;font-family:var(--head);font-size:clamp(2rem,4vw,3.8rem)}
+.landing-app .process-step>span{border-color:#92989e;background:linear-gradient(145deg,#fff,#d8dcdf);color:#272b2f;box-shadow:0 8px 22px #17191b0e}
+.landing-app .process-line{background:#aeb4b9}
+.landing-app .process-line i{background:#62696f}
+.landing-app .room-footer{position:relative;display:block!important;height:auto;min-height:0;overflow:hidden;padding:38px 0 20px;background:#111315;color:#f0f1f2}
+.landing-app .room-footer .wrap{width:min(calc(100% - 48px),1200px);display:grid;height:auto;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:24px}
+.landing-app .room-footer-top .logo .wordmark{color:#f2f3f4}
+.landing-app .room-footer-top .logo .wordmark span{color:#bfc3c7}
+.landing-app .room-footer-links a{color:#c7cbcf}
+.landing-app .room-footer-links h2{color:#9ea4aa}
+.landing-app .room-copyright{color:#a7adb2}
+.landing-app .room-copyright a{color:#d0d3d6}
+.landing-app .chat-launch{right:18px;bottom:18px;z-index:85;padding:.75rem 1rem;font:650 .92rem var(--head)}
+.landing-app .chat-panel{position:fixed;right:16px;bottom:76px;z-index:86;width:min(440px,calc(100vw - 32px));min-height:min(500px,calc(100dvh - 112px));max-height:min(680px,calc(100dvh - 96px));border:1px solid #aeb4b9;border-radius:20px;background:#f7f8f9;box-shadow:0 24px 70px #0004}
+.landing-app .chat-head,.landing-app .chat-msg{background:#eceeef;color:#17191b}
+.landing-app .chat-msg.user{background:#d9dde0;color:#17191b}
+.landing-app .chat-form{background:#f7f8f9}
+@media(max-width:1000px){.landing-app .nav{width:calc(100% - 32px);height:66px}.landing-app .menu{display:flex}.landing-app .navlinks{top:0;right:0;bottom:0;left:0;width:100vw;height:100dvh;padding:90px 26px 30px;background:#f3f4f5f7}.landing-app .navlinks>a:not(.nav-cta){color:#202326}.landing-app .navlinks .nav-cta{margin-top:.7rem}.landing-app .room-hero-inner{width:calc(100% - 40px)}.landing-app .room-hero-copy{width:min(88%,720px)}.landing-app .capability-panels{grid-template-columns:repeat(2,minmax(0,1fr))}.landing-app .capability-panel{min-height:96px}}
+@media(max-width:700px){.landing-app main{padding-top:0}.landing-app .room-hero,.landing-app .room-hero-inner{min-height:clamp(620px,86svh,760px)}.landing-app .room-hero-inner{width:calc(100% - 36px);padding:80px 0 56px}.landing-app .room-hero-copy{width:100%}.landing-app .hero-brand{font-size:clamp(3.4rem,14vw,5rem)}.landing-app .hero-statement{font-size:clamp(2rem,8vw,3rem)}.landing-app .room-marquee{padding:28px 18px}.landing-app .capability-panels{grid-template-columns:1fr;gap:10px}.landing-app .capability-panel{min-height:72px;flex-direction:row;justify-content:space-between;padding:0 20px}.landing-app .room-process{padding:70px 18px}.landing-app .process-steps{gap:.7rem}.landing-app .room-footer .wrap{width:calc(100% - 36px)}.landing-app .room-footer-links{padding:14px 0}.landing-app .room-footer-links h2{font-size:.64rem}.landing-app .room-footer-links a{font-size:.68rem}.landing-app .room-copyright{font-size:.62rem}.landing-app .chat-launch{right:12px;bottom:12px}.landing-app .chat-panel{right:8px;bottom:68px;width:calc(100vw - 16px);min-height:min(64dvh,520px);max-height:calc(100dvh - 82px)}}
+@media(prefers-reduced-motion:reduce){html.landing-site{scroll-behavior:auto}.landing-app *,.landing-app *:before,.landing-app *:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Keep homepage type scale aligned with the rest of the site on small screens. */
+.landing-app{font-family:var(--sans);font-size:16px;line-height:1.7}
+.landing-app h1,.landing-app h2,.landing-app h3,.landing-app p,.landing-app a,.landing-app button{font-family:var(--head)}
+.landing-app p{font-size:1rem;line-height:1.7}
+@media(max-width:390px){.landing-app .room-kicker{font-size:.68rem}.landing-app .capability-panel span{font-size:.9rem}.landing-app .room-footer-links h2{font-size:.78rem}.landing-app .room-footer-links a{font-size:.86rem}.landing-app .room-copyright{font-size:.76rem}.landing-app .business-countdown-value{font-size:.68rem}.landing-app .hero-brand{font-size:clamp(3.2rem,14vw,4.2rem)}}
+
+/* Warm polished chrome and a calmer, smaller homepage type scale. */
+.landing-app{--dk-chrome:#91613f;--dk-chrome-light:#c39a74;--dk-silver:#91613f;--dk-silver-soft:#76543a;--dk-line:#20170f24}
+.landing-app .logo .wordmark span{color:#8e5d3b}
+.landing-app .business-countdown[data-state='emailOnly'] .business-countdown-value:before{background:#b87937}
+.landing-app .navlinks a:not(.nav-cta):after{background:#a67652}
+.landing-app .navlinks .nav-cta,.landing-app .room-button,.landing-app .chat-launch{border-color:#95613f;background:linear-gradient(135deg,#d3b08c 0%,#a97951 48%,#794a30 100%);color:#fff;box-shadow:0 7px 24px #7b4b2b40,inset 0 1px #fff6}
+.landing-app .navlinks .nav-cta:hover,.landing-app .room-button:hover,.landing-app .chat-launch:hover{background:linear-gradient(135deg,#e4c19c,#b88961 52%,#885539);color:#fff;box-shadow:0 10px 28px #7b4b2b55,inset 0 1px #fff8}
+.landing-app .room-hero h1 span:last-child{color:#c39a74}
+.landing-app .hero-statement em{color:#d0a47e}
+.landing-app .room-kicker i{background:#bd8d66;box-shadow:0 0 12px #b87e4e66}
+.landing-app .process-step>span{border-color:#b68a66;background:linear-gradient(145deg,#fff,#ead9c9);color:#4a3526}
+.landing-app .process-line i{background:#9a6a47}
+.landing-app .room-section-head h2,.landing-app .founder-copy h2{font-size:clamp(2rem,3.7vw,3.25rem);letter-spacing:-.045em}
+.landing-app .process-step h3{font-size:clamp(1.55rem,2.7vw,2.6rem)}
+@media(min-width:701px){.landing-app .hero-brand{font-size:clamp(3.5rem,6vw,5.3rem)}.landing-app .hero-statement{font-size:clamp(1.8rem,3vw,2.7rem);line-height:1.1}.landing-app .room-hero,.landing-app .room-hero-inner{min-height:clamp(560px,76svh,720px)}}
+@media(max-width:700px){.landing-app .hero-brand{font-size:clamp(3rem,11vw,4rem)}.landing-app .hero-statement{font-size:clamp(1.7rem,6.6vw,2.35rem);line-height:1.12}.landing-app .room-section-head h2{font-size:clamp(1.9rem,7.5vw,2.55rem)}.landing-app .process-step h3{font-size:clamp(1.45rem,6vw,1.9rem)}.landing-app .nav,.landing-app .topbar{transform:none!important}.landing-app .navlinks{left:0;right:0;width:100%;max-width:100vw;box-sizing:border-box;overflow-x:hidden}.landing-app{overflow-x:clip}.landing-app .chat-launch{right:12px;max-width:calc(100vw - 24px)}}
+@media(max-width:420px){.landing-app .navlinks{left:0;right:0;width:100%;padding-right:20px;padding-left:20px}}
+
+.landing-app main{padding-top:0!important}
+.landing-app p,.landing-app button{font-family:var(--sans)}
+@media(max-width:700px){.landing-app .hero-brand{font-size:clamp(2.8rem,10vw,3.7rem)}.landing-app .hero-statement{font-size:clamp(1.55rem,6vw,2.1rem)}.landing-app .chat-launch{width:auto;min-width:0;height:auto;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;padding:.65rem .9rem;font-size:.83rem}}
+
+@media(max-width:1000px){.landing-app .navlinks{left:-16px;right:0;width:auto;max-width:none;box-sizing:border-box}}
+
+.landing-app.menu-open .chat-launch,.landing-app.menu-open .chat-panel{z-index:40}
+.landing-app .process-step h3{font-size:clamp(1.3rem,2vw,1.65rem)}
+.landing-app .room-section-head h2,.landing-app .founder-copy h2{font-size:clamp(1.8rem,3.4vw,2.9rem)}
+@media(max-width:700px){.landing-app .room-section-head h2{font-size:clamp(1.75rem,7.2vw,2.2rem)}.landing-app .process-step h3{font-size:1.25rem}}
