@@ -107,3 +107,6 @@ html,body{max-width:100%;overflow-x:clip}@media(max-width:1000px){.navlinks{tran
 .brand-mark{filter:grayscale(1)}
 .navlinks .nav-cta,.btn,.chat-launch,.contact-action,.chat-form button{color:#111315}
 .navlinks .nav-cta:hover,.btn:hover,.chat-suggestions button:hover,.contact-action:hover{color:#111315}
+
+.chat-launch:before{content:'✳';margin-right:.35rem;color:#54595e;font-size:1rem}
+@media(max-width:420px){.chat-launch{width:46px;height:46px;padding:0;font-size:0}.chat-launch:before{margin:0;font-size:1.15rem}}
