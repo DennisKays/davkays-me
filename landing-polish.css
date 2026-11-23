@@ -395,3 +395,56 @@ body.landing-app{position:relative;inset:auto;width:100%;height:auto;min-height:
 .landing-app .process-step h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .landing-app .room-section-head h2,.landing-app .founder-copy h2{font-size:clamp(1.8rem,3.4vw,2.9rem)}
 @media(max-width:700px){.landing-app .room-section-head h2{font-size:clamp(1.75rem,7.2vw,2.2rem)}.landing-app .process-step h3{font-size:1.25rem}}
+
+/* Dark cocoa and polished bronze, with the unwanted capability cards removed. */
+.landing-app{--dk-black:#0a0807;--dk-panel:#1a130f;--dk-panel-soft:#241811;--dk-white:#f3efe8;--dk-muted:#b8a99c;--dk-silver:#ac7b56;--dk-silver-soft:#81583d;--dk-chrome:#bd8b61;--dk-chrome-light:#e3bd94;--dk-line:#e3bd9428;background:#0b0908;color:#f3efe8}
+html.landing-site,body.landing-app,.landing-app main{background:#0b0908;color:#f3efe8}
+.landing-app .topbar{background:#110d0bee;border-bottom-color:#d8a98030}
+.landing-app .nav{background:transparent;border-color:#bd8b6140}
+.landing-app .logo .wordmark,.landing-app .logo{color:#f3efe8}
+.landing-app .logo .wordmark span{color:#d19a6d}
+.landing-app .brand-mark{filter:none;mix-blend-mode:screen;opacity:1;object-fit:contain;box-shadow:0 0 18px #c8875540}
+.landing-app .hero-brand-visual{filter:none;opacity:.68;mix-blend-mode:screen;filter:drop-shadow(0 16px 40px #000a)}
+.landing-app .hero-photo img{filter:blur(2.5px) brightness(.43) saturate(.62);transform:scale(1.04)}
+.landing-app .hero-photo:after{background:linear-gradient(90deg,#0b0908ed 0%,#0b0908cc 38%,#0b090886 72%,#0b0908a8 100%),linear-gradient(0deg,#0b0908b8 0%,transparent 48%,#0b09086b 100%),radial-gradient(ellipse at 78% 44%,#9f633d2b,transparent 42%)}
+.landing-app .room-hero h1 span:last-child,.landing-app .hero-statement em{color:#d6a478}
+.landing-app .room-kicker i{background:#c18a5c;box-shadow:0 0 14px #d99a624d}
+.landing-app .business-countdown{background:#21160f;border-color:#bc875b70;color:#f3e6d9}
+.landing-app .business-countdown-value{color:#f3e6d9}
+.landing-app .menu{border-color:#bd8b61;background:linear-gradient(145deg,#302016,#130d09);box-shadow:inset 0 1px #fff2,0 5px 18px #0008}
+.landing-app .menu span{background:#f2c79b;box-shadow:0 0 9px #c688554f}
+.landing-app .navlinks{background:#120d0afc;border-color:#bd8b6138;box-shadow:0 20px 60px #000b;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.landing-app .navlinks>a:not(.nav-cta),.landing-app .navlinks>a:not(.nav-cta):hover,.landing-app .navlinks>a[aria-current='page']{color:#f3efe8}
+.landing-app .navlinks>a:not(.nav-cta){font-size:1.15rem;letter-spacing:-.02em}
+.landing-app .navlinks>a:not(.nav-cta):after{background:linear-gradient(90deg,#6e4026,#e0b88d,#6e4026);height:2px}
+.landing-app .navlinks .nav-cta,.landing-app .room-button,.landing-app .chat-launch{border:1px solid #d19a6d;background:linear-gradient(135deg,#d8ad82 0%,#a56e47 46%,#653a23 100%);color:#fffaf3;box-shadow:0 7px 25px #8f542f55,inset 0 1px #fff8}
+.landing-app .navlinks .nav-cta:hover,.landing-app .room-button:hover,.landing-app .chat-launch:hover{background:linear-gradient(135deg,#e8c39d,#b78158 50%,#75472c);color:#fff;box-shadow:0 11px 30px #9a5d3766,inset 0 1px #fff9}
+.landing-app .locale-picker{border-color:#bd8b6175;background:#24170f;color:#f3e6d9}
+.landing-app .locale-picker select{color:#fff4e8}
+.landing-app .locale-globe{color:#d5a071}
+.landing-app .room-marquee{display:none!important}
+.landing-app .room-process{background:linear-gradient(145deg,#1b120d,#0b0908 72%);color:#f3efe8;border-bottom-color:#bd8b6125}
+.landing-app .room-eyebrow{color:#bd8b61}
+.landing-app .room-section-head h2,.landing-app .process-step h3{color:#f3efe8}
+.landing-app .process-step>span{border-color:#bd8b6180;background:linear-gradient(145deg,#382519,#1a110c);color:#ead5c0;box-shadow:0 6px 22px #0005}
+.landing-app .process-line,.landing-app .process-line i{background:#9b6947}
+.landing-app .room-footer{background:#100c09;border-top:1px solid #bd8b6128;color:#efe7dc}
+.landing-app .room-footer-links h2{color:#bd9a7d}
+.landing-app .room-footer-links a,.landing-app .room-copyright,.landing-app .room-copyright a{color:#c7b8aa}
+.landing-app .chat-launch{z-index:40}
+.landing-app .chat-panel{border-color:#bd8b6175;background:#17100c;color:#f3efe8}
+.landing-app .chat-head,.landing-app .chat-msg{background:#251912;color:#f3efe8}
+.landing-app .chat-msg.user{background:#3a271a;color:#fff4e8}
+.landing-app .chat-form{background:#17100c}
+.landing-app .chat-form input{border-color:#8d6143;background:#100c09;color:#f3efe8}
+.landing-app .chat-suggestions button{border:1px solid #875d40;background:#24170f;color:#f3e6d9}
+.landing-app .menu-open .chat-launch,.landing-app .menu-open .chat-panel{z-index:40}
+@media(max-width:1000px){.landing-app .navlinks{background:#120d0afc;padding-top:clamp(96px,17vh,150px);padding-bottom:36px;justify-content:flex-start}.landing-app .navlinks>a:not(.nav-cta){font-size:clamp(1.1rem,5vw,1.35rem);padding:.55rem .1rem}.landing-app .navlinks .nav-cta{min-height:48px;margin-top:.5rem;padding:.8rem 1.1rem;font-size:.92rem}.landing-app .locale-picker{margin:.75rem 0}.landing-app .room-hero,.landing-app .room-hero-inner{min-height:clamp(560px,78svh,700px)}}
+@media(max-width:700px){.landing-app .brand-mark{width:44px;height:32px}.landing-app .room-hero,.landing-app .room-hero-inner{min-height:clamp(560px,82svh,700px)}.landing-app .hero-photo img{filter:blur(2px) brightness(.4) saturate(.55)}}
+
+@media(max-width:1000px){.landing-app .logo,.landing-app .business-countdown{position:relative;z-index:90}}
+
+@media(max-width:1000px){.landing-app .navlinks{top:66px;height:calc(100dvh - 66px);padding-top:42px}}
+
+.landing-app .brand-mark{filter:brightness(2.35) contrast(1.12) drop-shadow(0 0 7px #e7b98ec9)}
+@media(max-width:700px){.landing-app .brand-mark{filter:brightness(2.5) contrast(1.12) drop-shadow(0 0 6px #e7b98edd)}}
