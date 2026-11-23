@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" class="room-site">
+<html lang="en" class="room-site landing-site">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b0b0c">
+  <meta name="theme-color" content="#050505">
   <title>DavKays — Good systems make room for good work</title>
   <meta name="description" content="DavKays is an independent digital studio building thoughtful websites and useful systems.">
   <link rel="canonical" href="https://davkays.me/">
@@ -15,10 +15,10 @@
   <link rel="stylesheet" href="/room.css?v=room-studio-2026-11">
   <link rel="stylesheet" href="/room-layout.css?v=room-studio-2026-11">
   <link rel="stylesheet" href="/room-motion.css?v=room-studio-2026-11">
-  <link rel="stylesheet" href="/landing-polish.css?v=polish-landing-2">
+  <link rel="stylesheet" href="/landing-polish.css?v=chrome-screen-8">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"DavKays","url":"https://davkays.me/","description":"An independent digital studio building thoughtful websites and useful systems."}</script>
 </head>
-<body class="room-page landing-polish">
+<body class="room-page landing-polish landing-app" data-active-screen="home">
   <a class="skip" href="#main">Skip to content</a>
   <header class="topbar">
     <nav class="nav wrap" aria-label="Main navigation">
@@ -26,7 +26,7 @@
       <button class="menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
       <div class="navlinks" id="navlinks">
         <a href="#home">Home</a>
-        <a href="#capabilities">Innovation</a>
+        <a href="#innovation">Innovation</a>
         <a href="#services">Services</a>
         <a href="#work">Projects</a>
         <a href="#about">About</a>
@@ -37,40 +37,41 @@
   </header>
 
   <main id="main">
-    <section class="room-hero" id="home" aria-labelledby="room-title">
-      <div class="hero-visual" aria-hidden="true"><span class="hero-orbit hero-orbit-one"></span><span class="hero-orbit hero-orbit-two"></span><img src="/assets/davkays-dk.png" alt="" fetchpriority="high" width="1536" height="1024"></div>
+    <section class="room-hero" id="home" data-screen="home" aria-labelledby="room-title">
+      <div class="hero-photo room-hero-photo"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="People working together at desks with computers" fetchpriority="high" width="1800" height="1200"></div>
+      <img class="hero-brand-visual" src="/assets/davkays-dk.png" alt="" aria-hidden="true" width="1536" height="1024" decoding="async">
       <div class="room-hero-inner wrap">
         <div class="room-hero-copy">
           <span class="room-kicker"><i></i> Independent digital studio · Zimbabwe</span>
-          <h1 id="room-title" aria-label="Good systems make room for good work."><span class="hero-word">Good</span> <span class="hero-word">systems</span><br><span class="hero-word">make</span> <span class="hero-word">room</span> <span class="hero-word">for</span><br><em><span class="hero-word">good</span> <span class="hero-word">work.</span></em></h1>
+          <h1 class="hero-brand" id="room-title"><span>Dav</span><span>Kays</span></h1>
+          <h2 class="hero-statement">Good systems make room for <em>good work.</em></h2>
           <p>Thoughtful websites and useful systems, made with care.</p>
-          <div class="room-hero-actions"><a class="room-button" href="/contact.html">Start a project <span aria-hidden="true">↗</span></a><a class="room-ghost hero-outline" href="#work">See our work <span aria-hidden="true">↓</span></a><a class="scroll-cue hero-text-link" href="#capabilities"><span>Scroll to explore</span><i aria-hidden="true">↓</i></a></div>
+          <div class="room-hero-actions"><a class="room-button" href="/contact.html">Start a project <span aria-hidden="true">↗</span></a><a class="room-ghost hero-outline" href="#work">See our work <span aria-hidden="true">↓</span></a><a class="hero-text-link" href="#innovation"><span>Scroll to explore</span><i aria-hidden="true">↓</i></a></div>
         </div>
       </div>
     </section>
 
-    <section class="room-marquee" id="capabilities" aria-label="DavKays capabilities">
-      <div class="marquee-track"><div class="marquee-group"><span>Websites</span><span>Dashboards</span><span>Bookkeeping</span><span>School systems</span><span>Ordering apps</span><span>Automation</span></div><div class="marquee-group" aria-hidden="true"><span>Websites</span><span>Dashboards</span><span>Bookkeeping</span><span>School systems</span><span>Ordering apps</span><span>Automation</span></div></div>
+    <section class="room-marquee" id="capabilities" data-screen="home" aria-label="DavKays capabilities">
+      <div class="capability-panels">
+        <article class="capability-panel"><span>Websites</span><span>Dashboards</span></article>
+        <article class="capability-panel"><span>Bookkeeping</span><span>School systems</span></article>
+        <article class="capability-panel"><span>Ordering apps</span><span>Automation</span></article>
+      </div>
     </section>
 
-    <section class="room-work room-section" id="work" aria-labelledby="work-title">
+    <section class="room-work room-section" id="work" data-screen="projects" aria-labelledby="work-title">
       <div class="wrap">
         <div class="room-section-head scroll-reveal"><div><span class="room-eyebrow">Made by DavKays</span><h2 id="work-title">Room for good ideas.</h2></div><p>Our own products, taking shape.</p></div>
-        <div class="work-stack">
-          <article class="work-card work-books scroll-reveal" tabindex="0" aria-label="DavKays Books interface mockup">
-            <div class="work-card-copy"><span class="product-state">Interface mockup</span><h3>DavKays Books</h3><p>More room for the stories worth keeping.</p></div>
-          </article>
-          <article class="work-card work-school scroll-reveal" tabindex="0" aria-label="School Management System interface mockup">
-            <div class="work-card-copy"><span class="product-state">Interface mockup</span><h3>School Management System</h3><p>A clearer view of the work that keeps school moving.</p></div>
-          </article>
-          <article class="work-card work-food scroll-reveal" tabindex="0" aria-label="FoodHub interface mockup">
-            <div class="work-card-copy"><span class="product-state">Interface mockup</span><h3>FoodHub</h3><p>A smoother path from menu to meal.</p></div>
-          </article>
+        <div class="work-stack" aria-label="DavKays projects">
+          <a class="work-card" href="https://davkays-connect.davidkanyurira6.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="DavKays Connect — Live web app, built by DavKays"><div class="work-card-copy"><span class="product-state">Live web app · built by DavKays</span><h3>DavKays Connect</h3><p>A live platform for creating online classrooms and private meetings. Hosts can manage room access and requests, while signed-in participants can join rooms and use the shared document portal.</p><span class="work-card-cta">See this project ↗</span></div></a>
+          <a class="work-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="DavKays business website — Website, built for DavKays"><div class="work-card-copy"><span class="product-state">Website · built for DavKays</span><h3>DavKays business website</h3><p>A responsive home for the services, story, and project enquiries, designed to make the next step clear on phones and computers.</p><span class="work-card-cta">See this project ↗</span></div></a>
+          <a class="work-card" href="/" target="_blank" rel="noopener noreferrer" aria-label="Quick answers helper — Website feature, DavKays"><div class="work-card-copy"><span class="product-state">Website feature · DavKays</span><h3>Quick answers helper</h3><p>A small on-page helper that answers common questions about services, pricing, software fixes, projects, and contact options, then points visitors to the right page.</p><span class="work-card-cta">See this project ↗</span></div></a>
+          <a class="work-card" href="/contact.html" target="_blank" rel="noopener noreferrer" aria-label="Contact and business-hours hub — Website feature, DavKays"><div class="work-card-copy"><span class="product-state">Website feature · DavKays</span><h3>Contact and business-hours hub</h3><p>A contact page with a ready-to-send email, direct call and WhatsApp links, local Harare time, and clear opening hours.</p><span class="work-card-cta">See this project ↗</span></div></a>
         </div>
       </div>
     </section>
 
-    <section class="room-services room-section" id="services" aria-labelledby="services-title">
+    <section class="room-services room-section" id="services" data-screen="services" aria-labelledby="services-title">
       <div class="wrap">
         <div class="room-section-head scroll-reveal"><div><span class="room-eyebrow">What we do</span><h2 id="services-title">Make space for better work.</h2></div></div>
         <div class="service-bento">
@@ -82,25 +83,26 @@
       </div>
     </section>
 
-    <section class="room-process room-section" id="process" aria-labelledby="process-title">
+    <section class="room-process room-section" id="innovation" data-screen="innovation" aria-labelledby="process-title">
       <div class="wrap">
+        <span id="process" class="anchor-alias" aria-hidden="true"></span>
         <div class="room-section-head scroll-reveal"><div><span class="room-eyebrow">A clear path</span><h2 id="process-title">From first thought to finished.</h2></div></div>
         <div class="process-steps"><div class="process-line" aria-hidden="true"><i></i></div><article class="process-step scroll-reveal"><span>01</span><h3>Tell us</h3></article><article class="process-step scroll-reveal"><span>02</span><h3>Build</h3></article><article class="process-step scroll-reveal"><span>03</span><h3>Launch</h3></article></div>
       </div>
     </section>
 
-    <section class="room-founder room-section" id="about" aria-labelledby="founder-title">
+    <section class="room-founder room-section" id="about" data-screen="about" aria-labelledby="founder-title">
       <div class="wrap founder-grid">
         <div class="founder-copy scroll-reveal"><span class="room-eyebrow">A small studio, close to the work</span><h2 id="founder-title">Thoughtfully made, from Zimbabwe.</h2><p>Independent by choice. Here to make useful things.</p><p>Curious about how good systems give time back.</p><div class="founder-chips"><span>Data Science &amp; Informatics</span><span>Zimbabwe</span></div><a class="room-text-link" href="/about.html">A little more about DavKays <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
-    <section class="room-cta room-section" id="contact" aria-labelledby="cta-title">
+    <section class="room-cta room-section" id="contact" data-screen="contact" aria-labelledby="cta-title">
       <div class="wrap cta-inner scroll-reveal"><span class="room-eyebrow">Your turn</span><h2 id="cta-title">Let’s build<br><em>yours.</em></h2><a class="room-button" href="/contact.html">Start a project <span aria-hidden="true">↗</span></a><div class="cta-contact"><a href="mailto:info@davkays.me">info@davkays.me</a><a href="https://wa.me/263711881780">WhatsApp <span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
-  <footer class="room-footer">
+  <footer class="room-footer" data-screen="contact">
     <div class="wrap">
       <div class="room-footer-top"><a class="logo" href="/" aria-label="DavKays home"><img class="brand-mark" src="/assets/davkays-dk.png" alt=""><span class="wordmark">Dav<span>Kays</span></span></a><span>A product of DavKays.</span></div>
       <div class="room-footer-links">
@@ -114,6 +116,7 @@
   </footer>
 
   <script src="/script.js" defer></script>
+  <script src="/landing-sections.js?v=chrome-screen-8" defer></script>
   <script src="/locale.js" defer></script>
   <script src="/chat.js?v=chat-layout-chips-838a5fc" defer></script>
 </body>
