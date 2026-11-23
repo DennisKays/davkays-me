@@ -40,6 +40,7 @@ html.landing-site{scroll-behavior:auto}
 .landing-app footer[data-screen].is-active{display:block}
 @keyframes screen-appear{from{opacity:.72;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .landing-app main>section{position:relative;flex:1 1 auto;min-width:0;min-height:0;overflow:hidden;border:0}
+.landing-app main>section[data-screen]:not([data-screen="home"]){overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
 .landing-app .skip{z-index:100}
 .landing-app .room-eyebrow{margin:0 0 .8rem;color:#c0c0c0;font-size:.62rem;letter-spacing:.17em}
 .landing-app .room-section-head{align-items:flex-start;flex-direction:column;gap:.25rem;margin-bottom:1.2rem}
