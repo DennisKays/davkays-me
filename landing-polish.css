@@ -452,3 +452,9 @@ html.landing-site,body.landing-app,.landing-app main{background:#0b0908;color:#f
 /* Keep the fixed assistant on the full-screen hero, clear of footer links. */
 .landing-app .room-hero,.landing-app .room-hero-inner{min-height:calc(100dvh - 74px)}
 @media(max-width:1000px){.landing-app .room-hero,.landing-app .room-hero-inner{min-height:max(780px,calc(100vh - 66px))}}
+
+/* Nudge the hero copy left and keep the assistant clear of the screen edge. */
+@media(min-width:1001px){.landing-app .room-hero-copy{transform:translateX(-44px)}}
+.landing-app .chat-launch{right:38px;bottom:42px}
+.landing-app[data-active-screen="home"] .chat-launch{right:38px;bottom:148px}
+@media(max-width:700px){.landing-app .room-hero-copy{transform:none}.landing-app .chat-launch{right:24px;bottom:28px}.landing-app[data-active-screen="home"] .chat-launch{right:24px;bottom:104px}}
