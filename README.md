@@ -7,8 +7,12 @@ A lightweight, responsive static website for DavKays. No build step, framework, 
 1. Confirm that forwarding for `info@davkays.me` reaches the monitored inbox and that the domain points to the chosen host.
 2. Review the privacy, terms, and accessibility pages. The legal pages are general drafts, not legal advice; align them with your jurisdiction, hosting provider, business details, and actual practices.
 3. The contact form opens a prefilled `mailto:` message. It does not submit to a server. For an on-page submission experience, connect an email/form provider and update the privacy policy.
-4. The homepage image and Google Fonts currently load from external hosts. For stricter privacy or fully self-hosted performance, use appropriately licensed local image/font files and update `index.html`, `style.css`, and its Open Graph image.
+4. The public site uses a local CSS and canvas background with system-font fallbacks. The canvas is decorative, pauses for reduced-motion preferences and when its page is hidden, and requires no third-party image or runtime dependency.
 5. Add a real social sharing image and your preferred analytics only if needed, with corresponding privacy disclosures.
+
+## Preview and checks
+
+This is a static website with no production build step. Serve this directory with any static HTTP server; the public root pages and route links work directly. Run `node --test tests/*.test.js` to execute the quote-calculator and site integrity checks.
 
 ## Files
 

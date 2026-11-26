@@ -3,11 +3,11 @@
   const prices=window.DAVKAYS_PRICING;
   if(!root||!prices)return;
   const format=new Intl.NumberFormat("en-US",{style:"currency",currency:prices.currency,maximumFractionDigits:2});
-  const groups=[["website","Websites and personal sites"],["software","Custom software"],["automation","Digital automation"]];
+  const groups=[["website","Websites and personal sites","websites"],["software","Custom software","software-pricing"],["automation","Digital automation","automation"]];
   const amount=item=>item.min==null?"Custom quotation":item.max==null?`From ${format.format(item.min)}`:item.min===item.max?format.format(item.min):`${format.format(item.min)}–${format.format(item.max)}`;
   const fragment=document.createDocumentFragment();
-  for(const [category,title] of groups){
-    const section=document.createElement("section");section.className="pricing-group";
+  for(const [category,title,id] of groups){
+    const section=document.createElement("section");section.className="pricing-group";section.id=id;
     const heading=document.createElement("h3");heading.textContent=title;section.append(heading);
     const grid=document.createElement("div");grid.className="pricing-grid";
     prices.catalog.filter(item=>item.category===category).forEach(item=>{
